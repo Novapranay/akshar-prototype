@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Akshar Board</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-screen="home">
+<header class="topbar">
+  <button id="btnHome" class="icon-btn" aria-label="Home">🏠</button>
+  <div class="brand">Akshar</div>
+  <button id="btnMute" class="icon-btn" aria-label="Sound on or off">🔊</button>
+</header>
+
+<main>
+  <!-- HOME: three picture doors, no words -->
+  <section id="home" class="screen active">
+    <div class="home-grid">
+      <button class="big-tile" data-go="scribble" aria-label="Scribble"><span>🖍️</span></button>
+      <button class="big-tile" data-go="write" aria-label="Writing"><span>➰</span></button>
+      <button class="big-tile" data-go="maths" aria-label="Maths"><span>🍎</span></button>
+    </div>
+    <button id="parentGate" class="parent-gate" aria-label="Parents: press and hold">🔒<i></i></button>
+  </section>
+
+  <!-- SCRIBBLE: free slate -->
+  <section id="scribble" class="screen">
+    <div class="toolbar" id="scribbleTools"></div>
+    <div class="board"><canvas id="scribbleCanvas"></canvas></div>
+  </section>
+
+  <!-- WRITING COACH -->
+  <section id="write" class="screen">
+    <div class="letter-strip" id="letterStrip"></div>
+    <div class="write-row">
+      <div class="stage-bar" id="stageBar"></div>
+      <div class="write-actions">
+        <button id="wReplay" class="icon-btn" aria-label="Watch again">👀</button>
+        <button id="wClear" class="icon-btn" aria-label="Start again">🔄</button>
+        <button id="wDone" class="icon-btn done-btn" aria-label="I am done" hidden>✔️</button>
+        <button id="wNext" class="icon-btn" aria-label="Next">➡️</button>
+      </div>
+    </div>
+    <div class="board write-board">
+      <canvas id="writeCanvas"></canvas>
+      <div id="starBurst" class="star-burst"></div>
+    </div>
+  </section>
+
+  <!-- MATHS -->
+  <section id="maths" class="screen">
+    <div class="op-bar" id="opBar"></div>
+    <div class="maths-body">
+      <div class="maths-main">
+        <div class="scene" id="scene"></div>
+        <div class="answer-row">
+          <div class="board answer-slate"><canvas id="answerCanvas"></canvas></div>
+          <div class="readout" id="readout"></div>
+          <div class="abtns">
+            <button id="aClear" class="icon-btn" aria-label="Clear">🧽</button>
+            <button id="aCheck" class="icon-btn check" aria-label="Check">✔️</button>
+            <button id="aKeys" class="icon-btn" aria-label="Number tiles">🔢</button>
+          </div>
+        </div>
+        <div class="keypad" id="keypad" hidden></div>
+      </div>
+      <aside class="hint-panel">
+        <button id="hintBulb" class="bulb" aria-label="Help">💡</button>
+        <div class="hint-steps" id="hintSteps"></div>
+        <div class="hint-stage" id="hintStage"></div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- PARENTS (text is fine here: parents read) -->
+  <section id="parent" class="screen">
+    <div class="parent-wrap" id="parentWrap"></div>
+  </section>
+</main>
+
+<div id="celebrate" class="celebrate"></div>
+
+<script src="js/core.js"></script>
+<script src="js/ink.js"></script>
+<script src="js/letters.js"></script>
+<script src="js/digits.js"></script>
+<script src="js/scribble.js"></script>
+<script src="js/writing.js"></script>
+<script src="js/maths.js"></script>
+<script src="js/parent.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
